@@ -1,0 +1,12 @@
+.mac-item {
+  border: none;
+  padding: 0.25rem 1rem 0.25rem 1rem;
+}
+
+.mac-item-title {
+  margin: 0;
+}
+
+.mac-item-trash {
+  margin: 0;
+}
