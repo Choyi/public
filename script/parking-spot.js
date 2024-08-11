@@ -2,13 +2,14 @@ function basicConfigSubmit(event) {
   event.preventDefault()
 
   const maxCheckInterval = Number(document.getElementById('max-check-interval').value)
+  const deviceFarAwayTimeout = Number(document.getElementById('device-far-away-timeout').value)
 
   fetch('/api/config/save', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ maxCheckInterval }),
+    body: JSON.stringify({ maxCheckInterval, deviceFarAwayTimeout }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -113,6 +114,15 @@ function makeBodyWrap() {
                 min="1"
                 required
               />
+              <label class="mt-3" for="device-far-away-timeout">Device far away timeout (seconds):</label>
+              <input
+                type="number"
+                class="form-control"
+                id="device-far-away-timeout"
+                name="deviceFarAwayTimeout"
+                min="1"
+                required
+              />
             </div>
             <button type="submit" class="btn btn-primary">Save</button>
           </form>
@@ -202,6 +212,9 @@ window.onload = async () => {
     // Display maxCheckInterval
     const maxCheckIntervalElem = document.getElementById('max-check-interval')
     maxCheckIntervalElem.value = data.res.maxCheckInterval
+
+    const deviceFarAwayTimeoutElem = document.getElementById('device-far-away-timeout');
+    deviceFarAwayTimeoutElem.value = data.res.deviceFarAwayTimeout
 
     // Display MAC addresses
     addMacAddressItemElements(data.res.addrs)
