@@ -4,7 +4,7 @@ function basicConfigSubmit(event) {
   const maxCheckInterval = Number(document.getElementById('max-check-interval').value)
   const deviceFarAwayTimeout = Number(document.getElementById('device-far-away-timeout').value)
 
-  fetch('/api/config/save', {
+  fetch('/parking-spot/config/save', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function onAddrDeleteClick(macAddress, button) {
 }
 
 function deleteMacAddress(macAddress, button) {
-  fetch('/api/config/addr/delete', {
+  fetch('/parking-spot/config/addr/delete', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ function macAddressAdding(event) {
 
   const macAddress = document.getElementById('mac-address').value.toLowerCase()
 
-  fetch('/api/config/addr/add', {
+  fetch('/parking-spot/config/addr/add', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ window.onload = async () => {
   checkInput()
 
   try {
-    const response = await fetch('/api/config')
+    const response = await fetch('/parking-spot/config')
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
