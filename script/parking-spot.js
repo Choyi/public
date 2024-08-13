@@ -213,7 +213,7 @@ window.onload = async () => {
     const maxCheckIntervalElem = document.getElementById('max-check-interval')
     maxCheckIntervalElem.value = data.res.maxCheckInterval
 
-    const deviceFarAwayTimeoutElem = document.getElementById('device-far-away-timeout');
+    const deviceFarAwayTimeoutElem = document.getElementById('device-far-away-timeout')
     deviceFarAwayTimeoutElem.value = data.res.deviceFarAwayTimeout
 
     // Display MAC addresses
